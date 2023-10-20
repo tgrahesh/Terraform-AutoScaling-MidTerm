@@ -7,6 +7,7 @@ The primary objective of this project is to create a robust and scalable archite
 
 # AWS Services Used
 -VPC
+
 -EC2
 -ALB
 -AutoScaling
