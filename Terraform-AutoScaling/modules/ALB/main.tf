@@ -1,8 +1,6 @@
-
-
 # Create a load balancer
 resource "aws_lb" "ALB" {
-  name               = "Terraform-ALB"
+  name               = var.AWS_ALB_Name
   internal           = false
   load_balancer_type = "application"
   security_groups    = var.SecurityGroup_id
@@ -21,3 +19,5 @@ default_action {
     target_group_arn = var.target_group_arn
   }
   }
+
+  

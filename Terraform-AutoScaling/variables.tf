@@ -42,3 +42,9 @@ variable "key_name" {
   type    = string
   default = "LoadTest"  # Replace with your key pair name
 }
+variable "custom_dashboard_name" {
+  
+}
+variable "AMI_Name" {
+  
+}

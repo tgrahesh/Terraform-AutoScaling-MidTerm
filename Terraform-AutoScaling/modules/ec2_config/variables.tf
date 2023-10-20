@@ -17,3 +17,6 @@ variable "SecurityGroup_id" {
 variable "subnet_ids" {
   
 }
+variable "AMI_Name" {
+  default = "Terraform-AMI"
+}

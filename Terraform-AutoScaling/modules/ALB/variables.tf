@@ -13,3 +13,9 @@ variable "SecurityGroup_id" {
     type    = list(string)
   default = []
 }
+
+
+variable "AWS_ALB_Name" {
+  default = "Terraform-ALB"
+  
+}

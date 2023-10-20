@@ -17,7 +17,7 @@ output "route_table_id" {
 output "SecurityGroup_id" {
  value = module.security_groups.SecurityGroup_id
 }
-/*
+
 output "target_group_arn" {
  value = module.TargetGroup.target_group_arn
 }
@@ -31,4 +31,6 @@ output "ALB_arn" {
 output "autoscaling_group" {
   value = module.autoscaling_group.autoscaling_group
 }
-*/
+output "dashboard_name" {
+  value = module.CustomAutoScalingDashboard.dashboard
+}
