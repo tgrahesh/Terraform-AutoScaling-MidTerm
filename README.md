@@ -6,11 +6,14 @@ This project demonstrates how to perform a load test using Postman and set up au
 The primary objective of this project is to create a robust and scalable architecture for a web application that can handle traffic fluctuations and ensure high availability. It uses a combination of AWS services to achieve this goal.
 
 # AWS Services Used
--VPC
+##VPC
 
 -EC2
+
 -ALB
+
 -AutoScaling
+
 -CloudWatch
 -S3 Bucket
 -DynamoDB
