@@ -6,7 +6,7 @@ This project demonstrates how to perform a load test using Postman and set up au
 The primary objective of this project is to create a robust and scalable architecture for a web application that can handle traffic fluctuations and ensure high availability. It uses a combination of AWS services to achieve this goal.
 
 # AWS Services Used
-##VPC
+-VPC
 
 -EC2
 
@@ -15,14 +15,20 @@ The primary objective of this project is to create a robust and scalable archite
 -AutoScaling
 
 -CloudWatch
+
 -S3 Bucket
+
 -DynamoDB
+
 -Lambda
+
 -IAM
+
 -SES
 
 # Other Technologies/tools Used
 -Postman
+
 -PDFKIT python library package for generating PDF document
 
 # AWS Infrastructure as Code with Terraform
