@@ -1,0 +1,11 @@
+VPC_Name = "terraform-VPC"
+subnet_names=["terraform-SubnetA", "terraform-SubnetB","terraform-SubnetB"]
+internet_gateway_name="terraform-igw"
+route_table_name="terraform-route-table"
+target_group_name="terraform-target-group"
+SG_Name="Terraform-SecurityGroup"
+snapshot_id="snap-04df0d2473a226073"
+name_prefix="terraform"
+key_name="key_name"
+custom_dashboard_name="Terraform-CustomDashBoard-AutoScaling"
+AMI_Name="Terraform-AMI"
