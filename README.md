@@ -1,9 +1,35 @@
 # Highly Available Web Application Deployment with Terraform
-This project demonstrates how to perform a load test using Postman and set up auto-scaling with AWS services, CloudWatch Alarms, Cloudwatch custom dashboard for displaying custom metrics and Lambda for notifications using various terraform modules to provision and manage AWS resources for a web application. This architecture ensures that your application can handle traffic fluctuations, and you receive email notifications when CPU utilization exceeds a specified threshold. It also uses remote backend using AWS servcies like DynamoDB for storing terraform locks and S3 for remote state files.
+This project demonstrates how to perform a load test using Postman and set up auto-scaling with AWS services, CloudWatch Alarms, Cloudwatch custom dashboard for displaying custom metrics and Lambda for reading metrics from custom dashboard created in cloudwatch and send reports via email(SES) using various terraform modules to provision and manage AWS resources for a web application. This architecture ensures that your application can handle traffic fluctuations, and you receive email notifications when CPU utilization exceeds a specified threshold. It also uses remote backend using AWS servcies like DynamoDB for storing terraform locks and S3 for remote state files.
 
 # Objective
 
 The primary objective of this project is to create a robust and scalable architecture for a web application that can handle traffic fluctuations and ensure high availability. It uses a combination of AWS services to achieve this goal.
+
+# AWS Services Used
+-VPC
+
+-EC2
+
+-ALB
+
+-AutoScaling
+
+-CloudWatch
+
+-S3 Bucket
+
+-DynamoDB
+
+-Lambda
+
+-IAM
+
+-SES
+
+# Other Technologies/tools Used
+-Postman
+
+-PDFKIT python library package for generating PDF document
 
 # AWS Infrastructure as Code with Terraform
 
@@ -38,6 +64,13 @@ This repository contains Terraform modules and configurations to provision and m
 ### 7. Auto Scaling Group (autoscaling_group)
 
 - The Auto Scaling Group module configures Auto Scaling for instances. It ensures that the desired number of instances are maintained based on load and instances launched from the specified launch template.
+### 8. CloudWatchAlarm (CloudwatchAlarm)
+
+Create a CloudWatch Alarm that monitors CPU utilization of ec2 instances in my autoscaling group and creates an alarm when my condition is met(CPU utilization>80)
+
+### 9. LambdaFunction (LambdaFucntion)
+
+The Python script that implements the Lambda function logic. This script reads the CloudWatch dashboard when alarm gets generated, and in turn generates a PDF report, and sends it via SES where my python files and other package dependancies are stored in s3 bucket. This Lambda function will be triggered by the CloudWatch Alarm.
 
 ## Steps
 
@@ -63,13 +96,13 @@ This repository contains Terraform modules and configurations to provision and m
 
 ### 3. Create a Lambda Function
 
-1. Develop a Lambda function that sends email notifications.
+1. Develop a Lambda function that sends email notifications which takes metrics from my custom cloudwatch dashboard and generate a PDF file with all metrics and send email notification by using pdfkit python library
 
-2. The Lambda function take parameters like the subject, recipient email address, and email body. It also includes the relevant logs, data, and timestamps.
+3. The Lambda function take parameters like the subject, recipient email address, and email body. It also includes the relevant logs, data from cloudwatch custom dashboard, and timestamps.
 
-3. Set up the function to be triggered by a CloudWatch Alarm action. When the alarm state changes to "ALARM," the Lambda function should be executed.
+4. Set up the function to be triggered by a CloudWatch Alarm action. When the alarm state changes to "ALARM," the Lambda function should be executed.
 
-4. In your Lambda function, you can use AWS Simple Email Service (SES) or an external SMTP server to send email notifications with the relevant data and logs.
+5. In your Lambda function, you can use AWS Simple Email Service (SES)  to send email notifications with the relevant data and logs.
 
 ### 4. Test and Verify
 
@@ -79,7 +112,7 @@ This repository contains Terraform modules and configurations to provision and m
 
 3. Verify that the CloudWatch Alarm changes to "ALARM" status, triggering the Lambda function.
 
-4. Check your email for the notification with the logs, data, and timestamp.
+4. Check your email for the notification with the logs, pdf attatchment, data, and timestamp.
 
 Please ensure that you've properly configured security groups, IAM roles, and permissions for your Lambda function and other AWS services. Additionally, make sure that your Lambda function has the required environment variables and configurations for sending email notifications.
 
