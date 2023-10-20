@@ -1,5 +1,5 @@
 # Highly Available Web Application Deployment with Terraform
-This project demonstrates how to perform a load test using Postman and set up auto-scaling with AWS services, CloudWatch Alarms, Cloudwatch custom dashboard for displaying custom metrics and Lambda for notifications using various terraform modules to provision and manage AWS resources for a web application. This architecture ensures that your application can handle traffic fluctuations, and you receive email notifications when CPU utilization exceeds a specified threshold. It also uses remote backend using AWS servcies like DynamoDB for storing terraform locks and S3 for remote state files.
+This project demonstrates how to perform a load test using Postman and set up auto-scaling with AWS services, CloudWatch Alarms, Cloudwatch custom dashboard for displaying custom metrics and Lambda for reading metrics from custom dashboard created in cloudwatch and send reports via email(SES) using various terraform modules to provision and manage AWS resources for a web application. This architecture ensures that your application can handle traffic fluctuations, and you receive email notifications when CPU utilization exceeds a specified threshold. It also uses remote backend using AWS servcies like DynamoDB for storing terraform locks and S3 for remote state files.
 
 # Objective
 
