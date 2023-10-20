@@ -29,7 +29,7 @@ The primary objective of this project is to create a robust and scalable archite
 # Other Technologies/tools Used
 -Postman
 
--PDFKIT python library package for generating PDF document
+-PDFKIT,JINJA2 python library package for generating PDF document
 
 # AWS Infrastructure as Code with Terraform
 
