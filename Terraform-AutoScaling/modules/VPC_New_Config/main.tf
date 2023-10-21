@@ -1,6 +1,6 @@
 # Create a VPC
 resource "aws_vpc" "my_vpc" {
-  cidr_block = "11.0.0.0/16"
+  cidr_block = var.cidr_block
    tags = {
     Name = var.VPC_Name  # Provide a name for your VPC here
   }
