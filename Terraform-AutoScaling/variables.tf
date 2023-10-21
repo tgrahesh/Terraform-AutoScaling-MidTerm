@@ -48,3 +48,7 @@ variable "custom_dashboard_name" {
 variable "AMI_Name" {
   
 }
+
+variable "region" {
+  
+}

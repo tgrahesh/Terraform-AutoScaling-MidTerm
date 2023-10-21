@@ -10,7 +10,7 @@ resource "aws_security_group" "AS_SecurityGroup" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["11.0.0.0/16"]
   }
 
   # Inbound rule for HTTP (port 80)
@@ -18,7 +18,7 @@ resource "aws_security_group" "AS_SecurityGroup" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["11.0.0.0/16"]
   }
 
   # Default inbound rule for all traffic within the security group
