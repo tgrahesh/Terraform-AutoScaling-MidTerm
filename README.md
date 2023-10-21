@@ -26,14 +26,9 @@ The primary objective of this project is to create a robust and scalable archite
 
 -SES
 
-# Other Technologies/tools Used
--Postman
+# Package Dependancies(python)
 
 -PDFKIT,JINJA2 python library package for generating PDF document
-
-# AWS Infrastructure as Code with Terraform
-
-This repository contains Terraform modules and configurations to provision and manage AWS resources for a web application. It follows best practices for infrastructure as code and modularization.
 
 ## Modules Overview
 
@@ -76,45 +71,13 @@ The Python script that implements the Lambda function logic. This script reads t
 
 ### 1. Create a Load Test in Postman
 
-1. Open Postman and create a collection for your load test.
-
-2. Add a request to your collection, targeting the URL of your Application Load Balancer (ALB).
-
-3. Create test scripts in Postman to simulate different load test scenarios. You can generate various requests with different payloads and parameters to simulate real-world traffic.
-
-4. Use Postman's collection runner to execute the load test by running the collection with multiple iterations and requests.
-
 ### 2. Set Up Auto Scaling with AWS
-
-1. Create an Auto Scaling group and configure it with a Launch Configuration or Launch Template.
-
-2. Set up scaling policies that trigger Auto Scaling based on CPU utilization exceeding 90%. You can configure scaling policies to add or remove instances from the Auto Scaling group.
-
-3. Create CloudWatch Alarms that monitor the CPU utilization metric. Set up an alarm that triggers when CPU utilization exceeds 90%.
-
-4. Configure the alarm to take action when it breaches its threshold. Define actions to trigger when the alarm state changes to "ALARM."
 
 ### 3. Create a Lambda Function
 
-1. Develop a Lambda function that sends email notifications which takes metrics from my custom cloudwatch dashboard and generate a PDF file with all metrics and send email notification by using pdfkit python library
-
-3. The Lambda function take parameters like the subject, recipient email address, and email body. It also includes the relevant logs, data from cloudwatch custom dashboard, and timestamps.
-
-4. Set up the function to be triggered by a CloudWatch Alarm action. When the alarm state changes to "ALARM," the Lambda function should be executed.
-
-5. In your Lambda function, you can use AWS Simple Email Service (SES)  to send email notifications with the relevant data and logs.
-
 ### 4. Test and Verify
 
-1. Execute the load test in Postman to generate the desired traffic to your ALB.
-
-2. Monitor the CPU utilization in AWS CloudWatch to ensure it exceeds 90%, which should trigger the Auto Scaling action.
-
-3. Verify that the CloudWatch Alarm changes to "ALARM" status, triggering the Lambda function.
-
-4. Check your email for the notification with the logs, pdf attatchment, data, and timestamp.
-
-Please ensure that you've properly configured security groups, IAM roles, and permissions for your Lambda function and other AWS services. Additionally, make sure that your Lambda function has the required environment variables and configurations for sending email notifications.
+### 5. Create CloudWatch Alarms that monitor the CPU utilization metric. Set up an alarm that triggers when CPU utilization exceeds 90%.
 
 ## Note
 
